@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "my_schema",
+  "type": "object",
+  "properties": {
+    "order_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "creation_date": {
+      "type": "string"
+    }
+  },
+  "required": ["order_id", "status"],
+  "v-default-fields": ["order_id", "status"],
+  "v-security": {
+    "allowGetAll": true,
+    "publicRead": ["order-id"],
+    "publicWrite": ["order-id"],
+    "publicFilter": ["order-id"]
+  }
+}

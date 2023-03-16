@@ -1,0 +1,10 @@
+{
+  "name": "SequraConnector",
+  "usesAutoSettleOptions": true,
+  "paymentMethods": [
+    {
+      "name": "Sequra",
+      "allowsSplit": "disabled"
+    }
+  ]
+}
