@@ -15,13 +15,15 @@ dar permisos de lectura y escritura en tabla y campos
 
 ### Configurations 
 1. You need to create a new Data Entity with Acronym "CO" and name you prefer with fields orderId, retry ,status
-   ```
-      orderId : Varchar50
-      retry: integer
-      status: Varchar50 
-  ```  
-  Assign permissions Search and filter settings to true. (Is searchable? and Is filterable?) Without this configuration, execution errors will be generated 
-2. [Create two trigger in Master Data v1 with Sending an HTTP request](https://help.vtex.com/en/tutorial/creating-trigger-in-master-data--tutorials_1270#sending-an-http-request) 
+   ```json
+   {
+      "orderId" : "Varchar50",
+      "retry": "integer",
+      "status": "Varchar50",
+      }
+    ``` 
+2. Assign permissions Search and filter settings to true. (Is searchable? and Is filterable?) Without this configuration, execution errors will be generated 
+3. [Create two trigger in Master Data v1 with Sending an HTTP request](https://help.vtex.com/en/tutorial/creating-trigger-in-master-data--tutorials_1270#sending-an-http-request) 
    1. Create a trigger with name **cancel_order_verify**
       1. Trigger rule => **Um registro for alterado**
       2. Schedule => Schedule on dynamic date with CURRENT DATE plus 4 Hour(s)
@@ -41,7 +43,7 @@ dar permisos de lectura y escritura en tabla y campos
          4. and select your Data Entity
          5. save 
 
-    This is a body JSON  on triggers 
+    This is a body configuration JSON  on triggers content as JSON
     ```json
         {
           "html_url": "{=UrlRegistro}",
@@ -60,9 +62,11 @@ dar permisos de lectura y escritura en tabla y campos
           "lastInteractionIn": "{!lastInteractionIn}",
           "followers": "{!followers}",
           "tags": "{!tags}",
-          "auto_filter": "{!auto_filter}"
+          "auto_filter": "{!auto_filter}",
         }
-```
+    ```
+
+## Order Feed v3
 
 This app handles events sent by the app `vtex.orders-broadcast`, as you can see by looking at `node/service.json`.
 
