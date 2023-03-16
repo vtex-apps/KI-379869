@@ -6000,10 +6000,6 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"vtex.orders-validator@https://choque--northlatamprojects.myvtex.com/_v/private/typings/linked/v1/vtex.orders-validator@0.0.1+build1678733785/public/@types/vtex.orders-validator":
-  version "0.0.1"
-  resolved "https://choque--northlatamprojects.myvtex.com/_v/private/typings/linked/v1/vtex.orders-validator@0.0.1+build1678733785/public/@types/vtex.orders-validator#9b0ad9d00762f7082e9a2fd814600771330c9609"
-
 w3c-hr-time@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/w3c-hr-time/-/w3c-hr-time-1.0.1.tgz#82ac2bff63d950ea9e3189a58a65625fedf19045"

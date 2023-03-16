@@ -1,20 +1,13 @@
 # Orders canceled validator
 
-App implementing an event handler receiving status updates from OMS Feed. 
+App implementing an event handler receiving status updates from OMS Feed and master data V1. 
 This is the method for using [Feed v3 Hook](https://developers.vtex.com/reference/feed-v3) inside VTEX IO.
-
-
-
-Crear tabla
-dar permisos de lectura y escritura en tabla y campos 
-    Is searchable? Is filterable? 
-    para orderId, status
 
 
 ## How to Use
 
 ### Configurations 
-1. You need to create a new Data Entity with Acronym "CO" and name you prefer with fields orderId, retry ,status
+1. You need to create a [new Data Entity](https://help.vtex.com/tutorial/creating-data-entity--tutorials_1265#how-to-set-up) with Acronym "CO" and name you prefer with fields orderId, retry ,status
    ```json
    {
       "orderId" : "Varchar50",
