@@ -1,3 +1,6 @@
+import { LogLevel } from '@vtex/api';
+import { LogUtil } from './utils/loggerUtil';
+import { LoggerConstants } from './utils/loggerConstants';
 import { validateDaysPassed } from './utils/validations';
 import { MAX_NUMBER_RETRY, MSG_CANCELED, MSG_NOT_CANCELED } from './typings/constants';
 
@@ -54,7 +57,29 @@ export async function cancelFlowTwo(ctx: Context) {
     } = ctx
 
     const orderMD = await masterData.searchByOrderId(body.orderId)
-    if (orderMD.length > 0){
-        masterData.delete(orderMD[0].id)
+    if (orderMD.length > 0) {
+        await masterData.delete(orderMD[0].id)
     }
+
+
+    const logInfo: any = {
+        info: LoggerConstants.DOCUMENT_DELETE_MD,
+        detail: {
+            accountName: ctx.vtex.account,
+            success: 200,
+            body: body
+        },
+    };
+
+    LogUtil.showLog(
+        {
+            message: `${logInfo.error}`,
+            method: cancelFlowTwo.name,
+            nameSpace: '',
+            type: LogLevel.Info,
+            code: 200,
+            detail: logInfo.detail,
+        },
+        ctx.vtex
+    );
 }
