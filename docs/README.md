@@ -58,8 +58,11 @@ This is the method for using [Feed v3 Hook](https://developers.vtex.com/referenc
           "auto_filter": "{!auto_filter}",
         }
     ```
+4. Install orders-validator app on your account with ```vtex install vtex.orders-validator@0.x```
+5. Once it is working, follow-up orders will be stored in master data with the current status or if it has already been cancelled. Status in Data entity will be "Cancel requested by vtex.orders-validator@x" if a cancellation request was made
+   
 
-## Order Feed v3
+## Order Feed v3 info
 
 This app handles events sent by the app `vtex.orders-broadcast`, as you can see by looking at `node/service.json`.
 
