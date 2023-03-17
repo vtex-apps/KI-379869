@@ -8,7 +8,7 @@ import { MAX_NUMBER_RETRY, MSG_CANCELED, MSG_NOT_CANCELED } from './typings/cons
 export async function cancelFlowOne(ctx: Context, order: OrderInfo) {
     const {
         state: { body },
-        clients: { orders, transactions, masterData },
+        clients: { /*orders,*/ transactions, masterData },
     } = ctx
 
     const doc: OrderType = {
@@ -24,7 +24,7 @@ export async function cancelFlowOne(ctx: Context, order: OrderInfo) {
     )
 
     if (transactionResponse.status.toLowerCase() === 'cancelled') {
-        await orders.cancelOrder(order.orderId)
+        //await orders.cancelOrder(order.orderId)
         masterData.updateDocument({ ...doc, status: MSG_CANCELED })
     } else if (body.retry < MAX_NUMBER_RETRY) {
         // Order in progress. We check again with retry + 1
@@ -35,7 +35,7 @@ export async function cancelFlowOne(ctx: Context, order: OrderInfo) {
         const now = new Date()
 
         if (validateDaysPassed(creationDate, now, 7)) {
-            await orders.cancelOrder(order.orderId)
+            //await orders.cancelOrder(order.orderId)
             message = MSG_CANCELED
         } else {
             message = MSG_NOT_CANCELED
