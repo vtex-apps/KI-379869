@@ -1,8 +1,8 @@
 {
-  "name": "orders-validator",
+  "name": "ki-379869",
   "vendor": "vtex",
   "version": "0.0.1",
-  "title": "Orders canceled validator",
+  "title": "KI-379869 - Orders canceled validator",
   "description": "App validator for canceled orders",
   "categories": [],
   "dependencies": {},
@@ -11,11 +11,15 @@
     "docs": "0.x",
     "paymentProvider": "1.x"
   },
-  "scripts": {
-    "prereleasy": "bash lint.sh"
-  },
+  "scripts": {},
   "credentialType": "absolute",
   "policies": [
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "ListOrders"
+    },
     {
       "name": "colossus-fire-event"
     },

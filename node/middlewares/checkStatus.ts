@@ -45,6 +45,7 @@ export async function checkStatus(ctx: Context, next: () => Promise<any>) {
       },
       ctx.vtex
     );
+    ctx.request.response.status = statuscodeError
   }
 
   await next()

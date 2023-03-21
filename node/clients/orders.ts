@@ -9,7 +9,8 @@ export class Orders extends JanusClient {
       ...options,
       headers: {
         ...options?.headers,
-        VtexIdclientAutCookie: ctx.adminUserAuthToken ?? ctx.authToken ?? '',
+        VtexIdclientAutCookie: ctx.authToken ?? ctx.adminUserAuthToken ?? '',
+        'Proxy-Authorization': ctx.authToken ?? ctx.adminUserAuthToken ?? '',
         'Content-Type': 'application/json',
         'X-Vtex-Use-Https': 'true',
       },
