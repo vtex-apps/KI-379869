@@ -15,6 +15,12 @@
   "credentialType": "absolute",
   "policies": [
     {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "ListOrders"
+    },
+    {
       "name": "colossus-fire-event"
     },
     {
