@@ -58,8 +58,8 @@ This is the method for using [Feed v3 Hook](https://developers.vtex.com/referenc
           "auto_filter": "{!auto_filter}",
         }
     ```
-4. Install orders-validator app on your account with ```vtex install vtex.orders-validator@0.x```
-5. Once it is working, follow-up orders will be stored in master data with the current status or if it has already been cancelled. Status in Data entity will be "Cancel requested by vtex.orders-validator@x" if a cancellation request was made
+4. Install ki-379869 app on your account with ```vtex install vtex.ki-379869@0.x```
+5. Once it is working, follow-up orders will be stored in master data with the current status or if it has already been cancelled. Status in Data entity will be "Cancel requested by vtex.ki-379869@x" if a cancellation request was made
    
 
 ## Order Feed v3 info
@@ -83,7 +83,7 @@ This app handles events sent by the app `vtex.orders-broadcast`, as you can see 
 }
 ```
 
-Orders canceled validator starts with consuming changes in status using Feed v3:
+App ki-379869 starts with consuming changes in status using Feed v3:
 
 1. Receive a selection of status changes where the `order-created`. 
 
@@ -92,7 +92,7 @@ Normally `vtex.orders-broadcast` sends events only in `master` workspace. If you
 1. Create your development workspace by running `vtex use {workspaceName}`
 2. Go to `https://{accountName}.myvtex.com/admin/apps/vtex.orders-broadcast/setup`
 3. Change the `Target Workspace` variable to the name of the workspace you have created previously.
-4. Now you can link this app (`vtex.orders-validator`) in your desired workspace and receive order status updates.
+4. Now you can link this app (`vtex.ki-379869`) in your desired workspace and receive order status updates.
 
 Here is an example body that you can expect to receive:
 
